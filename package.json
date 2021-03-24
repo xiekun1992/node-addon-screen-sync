@@ -1,0 +1,18 @@
+{
+  "name": "node-addon-screen-sync",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./test/test.js",
+    "install": "node-gyp rebuild"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "gypfile": true,
+  "dependencies": {
+    "node-addon-api": "^3.1.0",
+    "node-gyp": "^7.1.2"
+  }
+}

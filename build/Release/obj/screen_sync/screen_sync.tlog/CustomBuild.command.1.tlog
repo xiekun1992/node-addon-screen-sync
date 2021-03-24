@@ -1,0 +1,24 @@
+^I:\GITHUB\NODE-ADDON-SCREEN-SYNC\BIN\SWSCALE-5.DLL
+call mkdir "I:\github\node-addon-screen-sync\build\Release" 2>nul & set ERRORLEVEL=0 & copy /Y "I:\github\node-addon-screen-sync\bin\swscale-5.dll" "I:\github\node-addon-screen-sync\build\Release\swscale-5.dll"
+if %errorlevel% neq 0 exit /b %errorlevel%
+^I:\GITHUB\NODE-ADDON-SCREEN-SYNC\BIN\AVFORMAT-58.DLL
+call mkdir "I:\github\node-addon-screen-sync\build\Release" 2>nul & set ERRORLEVEL=0 & copy /Y "I:\github\node-addon-screen-sync\bin\avformat-58.dll" "I:\github\node-addon-screen-sync\build\Release\avformat-58.dll"
+if %errorlevel% neq 0 exit /b %errorlevel%
+^I:\GITHUB\NODE-ADDON-SCREEN-SYNC\BIN\SWRESAMPLE-3.DLL
+call mkdir "I:\github\node-addon-screen-sync\build\Release" 2>nul & set ERRORLEVEL=0 & copy /Y "I:\github\node-addon-screen-sync\bin\swresample-3.dll" "I:\github\node-addon-screen-sync\build\Release\swresample-3.dll"
+if %errorlevel% neq 0 exit /b %errorlevel%
+^I:\GITHUB\NODE-ADDON-SCREEN-SYNC\BIN\POSTPROC-55.DLL
+call mkdir "I:\github\node-addon-screen-sync\build\Release" 2>nul & set ERRORLEVEL=0 & copy /Y "I:\github\node-addon-screen-sync\bin\postproc-55.dll" "I:\github\node-addon-screen-sync\build\Release\postproc-55.dll"
+if %errorlevel% neq 0 exit /b %errorlevel%
+^I:\GITHUB\NODE-ADDON-SCREEN-SYNC\BIN\AVCODEC-58.DLL
+call mkdir "I:\github\node-addon-screen-sync\build\Release" 2>nul & set ERRORLEVEL=0 & copy /Y "I:\github\node-addon-screen-sync\bin\avcodec-58.dll" "I:\github\node-addon-screen-sync\build\Release\avcodec-58.dll"
+if %errorlevel% neq 0 exit /b %errorlevel%
+^I:\GITHUB\NODE-ADDON-SCREEN-SYNC\BIN\AVFILTER-7.DLL
+call mkdir "I:\github\node-addon-screen-sync\build\Release" 2>nul & set ERRORLEVEL=0 & copy /Y "I:\github\node-addon-screen-sync\bin\avfilter-7.dll" "I:\github\node-addon-screen-sync\build\Release\avfilter-7.dll"
+if %errorlevel% neq 0 exit /b %errorlevel%
+^I:\GITHUB\NODE-ADDON-SCREEN-SYNC\BIN\AVUTIL-56.DLL
+call mkdir "I:\github\node-addon-screen-sync\build\Release" 2>nul & set ERRORLEVEL=0 & copy /Y "I:\github\node-addon-screen-sync\bin\avutil-56.dll" "I:\github\node-addon-screen-sync\build\Release\avutil-56.dll"
+if %errorlevel% neq 0 exit /b %errorlevel%
+^I:\GITHUB\NODE-ADDON-SCREEN-SYNC\BIN\AVDEVICE-58.DLL
+call mkdir "I:\github\node-addon-screen-sync\build\Release" 2>nul & set ERRORLEVEL=0 & copy /Y "I:\github\node-addon-screen-sync\bin\avdevice-58.dll" "I:\github\node-addon-screen-sync\build\Release\avdevice-58.dll"
+if %errorlevel% neq 0 exit /b %errorlevel%

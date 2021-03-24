@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{749AE6C0-9515-7BDB-2419-9F6220AA4969}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>screen_sync</RootNamespace>
+    <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props"/>
+  <PropertyGroup Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+  </PropertyGroup>
+  <PropertyGroup Label="Locals">
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props"/>
+  <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.props"/>
+  <ImportGroup Label="ExtensionSettings"/>
+  <ImportGroup Label="PropertySheets">
+    <Import Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props"/>
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros"/>
+  <PropertyGroup>
+    <ExecutablePath>$(ExecutablePath);$(MSBuildProjectDirectory)\..\bin\;$(MSBuildProjectDirectory)\..\bin\</ExecutablePath>
+    <IgnoreImportLibrary>true</IgnoreImportLibrary>
+    <IntDir>$(Configuration)\obj\$(ProjectName)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.node</TargetExt>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.node</TargetExt>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.node</TargetExt>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.node</TargetExt>
+    <TargetName>$(ProjectName)</TargetName>
+    <TargetPath>$(OutDir)\$(ProjectName).node</TargetPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\XieKun\AppData\Local\node-gyp\Cache\12.16.1\include\node;C:\Users\XieKun\AppData\Local\node-gyp\Cache\12.16.1\src;C:\Users\XieKun\AppData\Local\node-gyp\Cache\12.16.1\deps\openssl\config;C:\Users\XieKun\AppData\Local\node-gyp\Cache\12.16.1\deps\openssl\openssl\include;C:\Users\XieKun\AppData\Local\node-gyp\Cache\12.16.1\deps\uv\include;C:\Users\XieKun\AppData\Local\node-gyp\Cache\12.16.1\deps\zlib;C:\Users\XieKun\AppData\Local\node-gyp\Cache\12.16.1\deps\v8\include;I:\github\node-addon-screen-sync\node_modules\node-addon-api;I:\github\node-addon-screen-sync\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <BufferSecurityCheck>true</BufferSecurityCheck>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <DebugInformationFormat>OldStyle</DebugInformationFormat>
+      <DisableSpecificWarnings>4351;4355;4800;4251;4275;4244;4267;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ExceptionHandling>false</ExceptionHandling>
+      <MinimalRebuild>false</MinimalRebuild>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OmitFramePointers>false</OmitFramePointers>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PreprocessorDefinitions>NODE_GYP_MODULE_NAME=screen_sync;USING_UV_SHARED=1;USING_V8_SHARED=1;V8_DEPRECATION_WARNINGS=1;V8_DEPRECATION_WARNINGS;V8_IMMINENT_DEPRECATION_WARNINGS;WIN32;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_HAS_EXCEPTIONS=0;OPENSSL_NO_PINSHARED;OPENSSL_THREADS;NAPI_DISABLE_CPP_EXCEPTIONS;BUILDING_NODE_EXTENSION;HOST_BINARY=&quot;node.exe&quot;;DEBUG;_DEBUG;V8_ENABLE_CHECKS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <StringPooling>true</StringPooling>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <WarningLevel>Level3</WarningLevel>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;DelayImp.lib;&quot;C:\Users\XieKun\AppData\Local\node-gyp\Cache\12.16.1\x64\node.lib&quot;;I:\github\node-addon-screen-sync\lib\avcodec.lib;I:\github\node-addon-screen-sync\lib\avdevice.lib;I:\github\node-addon-screen-sync\lib\avfilter.lib;I:\github\node-addon-screen-sync\lib\avformat.lib;I:\github\node-addon-screen-sync\lib\avutil.lib;I:\github\node-addon-screen-sync\lib\postproc.lib;I:\github\node-addon-screen-sync\lib\swresample.lib;I:\github\node-addon-screen-sync\lib\swscale.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>I:\github\node-addon-screen-sync/src/lib/;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>/ignore:4199 %(AdditionalOptions)</AdditionalOptions>
+      <DelayLoadDLLs>node.exe;%(DelayLoadDLLs)</DelayLoadDLLs>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <OutputFile>$(OutDir)$(ProjectName).node</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetExt>.node</TargetExt>
+      <TargetMachine>MachineX64</TargetMachine>
+    </Link>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>C:\Users\XieKun\AppData\Local\node-gyp\Cache\12.16.1\include\node;C:\Users\XieKun\AppData\Local\node-gyp\Cache\12.16.1\src;C:\Users\XieKun\AppData\Local\node-gyp\Cache\12.16.1\deps\openssl\config;C:\Users\XieKun\AppData\Local\node-gyp\Cache\12.16.1\deps\openssl\openssl\include;C:\Users\XieKun\AppData\Local\node-gyp\Cache\12.16.1\deps\uv\include;C:\Users\XieKun\AppData\Local\node-gyp\Cache\12.16.1\deps\zlib;C:\Users\XieKun\AppData\Local\node-gyp\Cache\12.16.1\deps\v8\include;I:\github\node-addon-screen-sync\node_modules\node-addon-api;I:\github\node-addon-screen-sync\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NODE_GYP_MODULE_NAME=screen_sync;USING_UV_SHARED=1;USING_V8_SHARED=1;V8_DEPRECATION_WARNINGS=1;V8_DEPRECATION_WARNINGS;V8_IMMINENT_DEPRECATION_WARNINGS;WIN32;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_HAS_EXCEPTIONS=0;OPENSSL_NO_PINSHARED;OPENSSL_THREADS;NAPI_DISABLE_CPP_EXCEPTIONS;BUILDING_NODE_EXTENSION;HOST_BINARY=&quot;node.exe&quot;;DEBUG;_DEBUG;V8_ENABLE_CHECKS;%(PreprocessorDefinitions);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\XieKun\AppData\Local\node-gyp\Cache\12.16.1\include\node;C:\Users\XieKun\AppData\Local\node-gyp\Cache\12.16.1\src;C:\Users\XieKun\AppData\Local\node-gyp\Cache\12.16.1\deps\openssl\config;C:\Users\XieKun\AppData\Local\node-gyp\Cache\12.16.1\deps\openssl\openssl\include;C:\Users\XieKun\AppData\Local\node-gyp\Cache\12.16.1\deps\uv\include;C:\Users\XieKun\AppData\Local\node-gyp\Cache\12.16.1\deps\zlib;C:\Users\XieKun\AppData\Local\node-gyp\Cache\12.16.1\deps\v8\include;I:\github\node-addon-screen-sync\node_modules\node-addon-api;I:\github\node-addon-screen-sync\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <BufferSecurityCheck>true</BufferSecurityCheck>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <DebugInformationFormat>OldStyle</DebugInformationFormat>
+      <DisableSpecificWarnings>4351;4355;4800;4251;4275;4244;4267;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ExceptionHandling>false</ExceptionHandling>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OmitFramePointers>true</OmitFramePointers>
+      <Optimization>Full</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PreprocessorDefinitions>NODE_GYP_MODULE_NAME=screen_sync;USING_UV_SHARED=1;USING_V8_SHARED=1;V8_DEPRECATION_WARNINGS=1;V8_DEPRECATION_WARNINGS;V8_IMMINENT_DEPRECATION_WARNINGS;WIN32;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_HAS_EXCEPTIONS=0;OPENSSL_NO_PINSHARED;OPENSSL_THREADS;NAPI_DISABLE_CPP_EXCEPTIONS;BUILDING_NODE_EXTENSION;HOST_BINARY=&quot;node.exe&quot;;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <StringPooling>true</StringPooling>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <WarningLevel>Level3</WarningLevel>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;DelayImp.lib;&quot;C:\Users\XieKun\AppData\Local\node-gyp\Cache\12.16.1\x64\node.lib&quot;;I:\github\node-addon-screen-sync\lib\avcodec.lib;I:\github\node-addon-screen-sync\lib\avdevice.lib;I:\github\node-addon-screen-sync\lib\avfilter.lib;I:\github\node-addon-screen-sync\lib\avformat.lib;I:\github\node-addon-screen-sync\lib\avutil.lib;I:\github\node-addon-screen-sync\lib\postproc.lib;I:\github\node-addon-screen-sync\lib\swresample.lib;I:\github\node-addon-screen-sync\lib\swscale.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>I:\github\node-addon-screen-sync/src/lib/;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>/ignore:4199 %(AdditionalOptions)</AdditionalOptions>
+      <DelayLoadDLLs>node.exe;%(DelayLoadDLLs)</DelayLoadDLLs>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <OutputFile>$(OutDir)$(ProjectName).node</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetExt>.node</TargetExt>
+      <TargetMachine>MachineX64</TargetMachine>
+    </Link>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>C:\Users\XieKun\AppData\Local\node-gyp\Cache\12.16.1\include\node;C:\Users\XieKun\AppData\Local\node-gyp\Cache\12.16.1\src;C:\Users\XieKun\AppData\Local\node-gyp\Cache\12.16.1\deps\openssl\config;C:\Users\XieKun\AppData\Local\node-gyp\Cache\12.16.1\deps\openssl\openssl\include;C:\Users\XieKun\AppData\Local\node-gyp\Cache\12.16.1\deps\uv\include;C:\Users\XieKun\AppData\Local\node-gyp\Cache\12.16.1\deps\zlib;C:\Users\XieKun\AppData\Local\node-gyp\Cache\12.16.1\deps\v8\include;I:\github\node-addon-screen-sync\node_modules\node-addon-api;I:\github\node-addon-screen-sync\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NODE_GYP_MODULE_NAME=screen_sync;USING_UV_SHARED=1;USING_V8_SHARED=1;V8_DEPRECATION_WARNINGS=1;V8_DEPRECATION_WARNINGS;V8_IMMINENT_DEPRECATION_WARNINGS;WIN32;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_HAS_EXCEPTIONS=0;OPENSSL_NO_PINSHARED;OPENSSL_THREADS;NAPI_DISABLE_CPP_EXCEPTIONS;BUILDING_NODE_EXTENSION;HOST_BINARY=&quot;node.exe&quot;;%(PreprocessorDefinitions);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="..\binding.gyp"/>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\screen_sync.cpp"/>
+    <ClCompile Include="..\src\wrapper\screen_sync_wrapper.cpp"/>
+    <ClCompile Include="..\src\wrapper\wrapper.cpp"/>
+    <ClCompile Include="C:\Users\xiekun.FUTURE3D\AppData\Roaming\npm\node_modules\node-gyp\src\win_delay_load_hook.cc"/>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="I:\github\node-addon-screen-sync\bin\swscale-5.dll">
+      <FileType>Document</FileType>
+      <Command>call mkdir &quot;I:\github\node-addon-screen-sync\build\Release&quot; 2&gt;nul &amp; set ERRORLEVEL=0 &amp; copy /Y &quot;I:\github\node-addon-screen-sync\bin\swscale-5.dll&quot; &quot;I:\github\node-addon-screen-sync\build\Release\swscale-5.dll&quot;&#xD;&#xA;if %errorlevel% neq 0 exit /b %errorlevel%</Command>
+      <Message>Copying I:\github\node-addon-screen-sync/bin/swscale-5.dll to I:\github\node-addon-screen-sync/build/Release/swscale-5.dll</Message>
+      <Outputs>I:\github\node-addon-screen-sync\build\Release\swscale-5.dll</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="I:\github\node-addon-screen-sync\bin\avformat-58.dll">
+      <FileType>Document</FileType>
+      <Command>call mkdir &quot;I:\github\node-addon-screen-sync\build\Release&quot; 2&gt;nul &amp; set ERRORLEVEL=0 &amp; copy /Y &quot;I:\github\node-addon-screen-sync\bin\avformat-58.dll&quot; &quot;I:\github\node-addon-screen-sync\build\Release\avformat-58.dll&quot;&#xD;&#xA;if %errorlevel% neq 0 exit /b %errorlevel%</Command>
+      <Message>Copying I:\github\node-addon-screen-sync/bin/avformat-58.dll to I:\github\node-addon-screen-sync/build/Release/avformat-58.dll</Message>
+      <Outputs>I:\github\node-addon-screen-sync\build\Release\avformat-58.dll</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="I:\github\node-addon-screen-sync\bin\swresample-3.dll">
+      <FileType>Document</FileType>
+      <Command>call mkdir &quot;I:\github\node-addon-screen-sync\build\Release&quot; 2&gt;nul &amp; set ERRORLEVEL=0 &amp; copy /Y &quot;I:\github\node-addon-screen-sync\bin\swresample-3.dll&quot; &quot;I:\github\node-addon-screen-sync\build\Release\swresample-3.dll&quot;&#xD;&#xA;if %errorlevel% neq 0 exit /b %errorlevel%</Command>
+      <Message>Copying I:\github\node-addon-screen-sync/bin/swresample-3.dll to I:\github\node-addon-screen-sync/build/Release/swresample-3.dll</Message>
+      <Outputs>I:\github\node-addon-screen-sync\build\Release\swresample-3.dll</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="I:\github\node-addon-screen-sync\bin\postproc-55.dll">
+      <FileType>Document</FileType>
+      <Command>call mkdir &quot;I:\github\node-addon-screen-sync\build\Release&quot; 2&gt;nul &amp; set ERRORLEVEL=0 &amp; copy /Y &quot;I:\github\node-addon-screen-sync\bin\postproc-55.dll&quot; &quot;I:\github\node-addon-screen-sync\build\Release\postproc-55.dll&quot;&#xD;&#xA;if %errorlevel% neq 0 exit /b %errorlevel%</Command>
+      <Message>Copying I:\github\node-addon-screen-sync/bin/postproc-55.dll to I:\github\node-addon-screen-sync/build/Release/postproc-55.dll</Message>
+      <Outputs>I:\github\node-addon-screen-sync\build\Release\postproc-55.dll</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="I:\github\node-addon-screen-sync\bin\avcodec-58.dll">
+      <FileType>Document</FileType>
+      <Command>call mkdir &quot;I:\github\node-addon-screen-sync\build\Release&quot; 2&gt;nul &amp; set ERRORLEVEL=0 &amp; copy /Y &quot;I:\github\node-addon-screen-sync\bin\avcodec-58.dll&quot; &quot;I:\github\node-addon-screen-sync\build\Release\avcodec-58.dll&quot;&#xD;&#xA;if %errorlevel% neq 0 exit /b %errorlevel%</Command>
+      <Message>Copying I:\github\node-addon-screen-sync/bin/avcodec-58.dll to I:\github\node-addon-screen-sync/build/Release/avcodec-58.dll</Message>
+      <Outputs>I:\github\node-addon-screen-sync\build\Release\avcodec-58.dll</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="I:\github\node-addon-screen-sync\bin\avfilter-7.dll">
+      <FileType>Document</FileType>
+      <Command>call mkdir &quot;I:\github\node-addon-screen-sync\build\Release&quot; 2&gt;nul &amp; set ERRORLEVEL=0 &amp; copy /Y &quot;I:\github\node-addon-screen-sync\bin\avfilter-7.dll&quot; &quot;I:\github\node-addon-screen-sync\build\Release\avfilter-7.dll&quot;&#xD;&#xA;if %errorlevel% neq 0 exit /b %errorlevel%</Command>
+      <Message>Copying I:\github\node-addon-screen-sync/bin/avfilter-7.dll to I:\github\node-addon-screen-sync/build/Release/avfilter-7.dll</Message>
+      <Outputs>I:\github\node-addon-screen-sync\build\Release\avfilter-7.dll</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="I:\github\node-addon-screen-sync\bin\avutil-56.dll">
+      <FileType>Document</FileType>
+      <Command>call mkdir &quot;I:\github\node-addon-screen-sync\build\Release&quot; 2&gt;nul &amp; set ERRORLEVEL=0 &amp; copy /Y &quot;I:\github\node-addon-screen-sync\bin\avutil-56.dll&quot; &quot;I:\github\node-addon-screen-sync\build\Release\avutil-56.dll&quot;&#xD;&#xA;if %errorlevel% neq 0 exit /b %errorlevel%</Command>
+      <Message>Copying I:\github\node-addon-screen-sync/bin/avutil-56.dll to I:\github\node-addon-screen-sync/build/Release/avutil-56.dll</Message>
+      <Outputs>I:\github\node-addon-screen-sync\build\Release\avutil-56.dll</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="I:\github\node-addon-screen-sync\bin\avdevice-58.dll">
+      <FileType>Document</FileType>
+      <Command>call mkdir &quot;I:\github\node-addon-screen-sync\build\Release&quot; 2&gt;nul &amp; set ERRORLEVEL=0 &amp; copy /Y &quot;I:\github\node-addon-screen-sync\bin\avdevice-58.dll&quot; &quot;I:\github\node-addon-screen-sync\build\Release\avdevice-58.dll&quot;&#xD;&#xA;if %errorlevel% neq 0 exit /b %errorlevel%</Command>
+      <Message>Copying I:\github\node-addon-screen-sync/bin/avdevice-58.dll to I:\github\node-addon-screen-sync/build/Release/avdevice-58.dll</Message>
+      <Outputs>I:\github\node-addon-screen-sync\build\Release\avdevice-58.dll</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="node_modules\node-addon-api\nothing.vcxproj">
+      <Project>{8B11BB7B-2C95-19D7-450E-0F011004F009}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets"/>
+  <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets"/>
+  <ImportGroup Label="ExtensionTargets"/>
+</Project>
