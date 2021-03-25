@@ -5,9 +5,9 @@ namespace ScreenSync {
   BYTE* screenData = NULL;
   BYTE* encodedData = NULL;
   BYTE* decodedData = NULL;
+  screen_sync::ScreenCap screenCap;
 
   Napi::Value init(const Napi::CallbackInfo& info) {
-    screen_sync::ScreenCap screenCap;
     width = screenCap.sw;
     height = screenCap.sh;
     fps = 25;
@@ -37,7 +37,7 @@ namespace ScreenSync {
   }
   Napi::Value record(const Napi::CallbackInfo& info) {
     screen_sync::Encoder encoder(width, height, fps);
-    screen_sync::ScreenCap screenCap;
+    // screen_sync::ScreenCap screenCap;
     screenCap.desktopshot(screenData);
     encoder.encodeRgb24(screenData);
     encoder.flush();

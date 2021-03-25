@@ -59,6 +59,7 @@ namespace screen_sync {
 	class ScreenCap {
 		private:
 			HDC hdcScreen, hdc;
+			HWND hwnd;
 			HBITMAP bitmap;
 			HGDIOBJ gdiObj;
 			BITMAPINFOHEADER bmi = { 0 };

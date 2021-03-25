@@ -260,17 +260,9 @@ namespace screen_sync {
 
 	ScreenCap::ScreenCap() {
 		BOOL ret = FALSE;
-		hdcScreen = GetDC(NULL); // 使用主屏幕
-
-		CURSORINFO cursorInfo = { 0 };
-		cursorInfo.cbSize = sizeof(cursorInfo);
-		ret = GetCursorInfo(&cursorInfo);
-		if (ret) {
-			if (cursorInfo.flags == CURSOR_SHOWING) {
-				POINT pos = cursorInfo.ptScreenPos;
-				DrawIconEx(hdcScreen, pos.x, pos.y, cursorInfo.hCursor, 0, 0, 0, 0, DI_NORMAL | DI_DEFAULTSIZE);
-			}
-		}
+		hwnd = GetDesktopWindow();
+		hdcScreen = GetWindowDC(hwnd); 
+		// hdcScreen = GetDC(NULL); // 使用主屏幕
 		hdc = CreateCompatibleDC(hdcScreen);
 
 		sw = GetDeviceCaps(hdcScreen, HORZRES);
@@ -279,9 +271,36 @@ namespace screen_sync {
 		bitmap = CreateCompatibleBitmap(hdcScreen, sw, sh);
 		gdiObj = SelectObject(hdc, bitmap);
 		tmpScreenData = new BYTE[sizeof(BYTE) * sw * sh * 3];
-		ret = BitBlt(hdc, 0, 0, sw, sh, hdcScreen, 0, 0, SRCCOPY);
-
+	}
+	ScreenCap::~ScreenCap() {
+		delete tmpScreenData;
+		SelectObject(hdc, gdiObj);
+		DeleteDC(hdc);
+		ReleaseDC(NULL, hdcScreen);
+		DeleteObject(bitmap);
+	}
+	void ScreenCap::desktopshot(BYTE* screenData) {
+		BOOL ret = BitBlt(hdc, 0, 0, sw, sh, hdcScreen, 0, 0, SRCCOPY);
+		
 		if (ret) {
+			CURSORINFO cursorInfo = { 0 };
+			cursorInfo.cbSize = sizeof(cursorInfo);
+			ret = GetCursorInfo(&cursorInfo);
+			if (ret) {
+				if (cursorInfo.flags == CURSOR_SHOWING) {
+					RECT rect;
+					GetWindowRect(hwnd, &rect);
+					ICONINFO info = { sizeof(info) };
+					GetIconInfo(cursorInfo.hCursor, &info);
+					POINT pos = cursorInfo.ptScreenPos;
+					int x = pos.x - rect.left - rect.left - info.xHotspot;
+					int y = pos.y - rect.top - rect.top - info.yHotspot;
+					BITMAP bmpCursor = {0};
+					GetObject(info.hbmColor, sizeof(bmpCursor), &bmpCursor);
+					DrawIconEx(hdc, x, y, cursorInfo.hCursor, bmpCursor.bmWidth, bmpCursor.bmHeight, 0, NULL, DI_NORMAL);
+				}
+			}
+
 			bmi = { 0 };
 			bmi.biSize = sizeof(BITMAPINFOHEADER);
 			bmi.biPlanes = 1;
@@ -294,19 +313,11 @@ namespace screen_sync {
 			bmi.biYPelsPerMeter = 0;
 			bmi.biClrUsed = 0;
 			bmi.biClrImportant = 0;
-		}
-	}
-	ScreenCap::~ScreenCap() {
-		delete tmpScreenData;
-		SelectObject(hdc, gdiObj);
-		DeleteDC(hdc);
-		ReleaseDC(NULL, hdcScreen);
-		DeleteObject(bitmap);
-	}
-	void ScreenCap::desktopshot(BYTE* screenData) {
-		GetDIBits(hdc, bitmap, 0, sh, tmpScreenData, (LPBITMAPINFO)&bmi, DIB_RGB_COLORS);
-		for (int i = 0; i < sh; i++) {
-			memcpy(&(screenData[(i * sw) * 3]), &(tmpScreenData[((sh - 1 - i) * sw) * 3]), (size_t)(sw * (size_t)3));
+
+			GetDIBits(hdc, bitmap, 0, sh, tmpScreenData, (LPBITMAPINFO)&bmi, DIB_RGB_COLORS);
+			for (int i = 0; i < sh; i++) {
+				memcpy(&(screenData[(i * sw) * 3]), &(tmpScreenData[((sh - 1 - i) * sw) * 3]), (size_t)(sw * (size_t)3));
+			}
 		}
 	}
 }
