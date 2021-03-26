@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="previewEl" width="1920" height="1200"></canvas>
+  <script>
+    const screenSync = require('../node-addon-screen-sync')
+    const ctx = previewEl.getContext('2d')
+    const width = 1920, height = 1200
+    screenSync.init()
+    // previewEl.width = width
+    // previewEl.height = height
+    const imgData = ctx.createImageData(width, height)
+    
+    const ws = new WebSocket('ws://192.168.3.31:4000')
+    ws.binaryType = 'arraybuffer'
+    ws.onmessage = async function(ev) {
+      // console.log(ev.data)
+      const st = performance.now()
+      
+      const encodedBgr = new Uint8Array(ev.data)
+      const bgr = screenSync.extract(encodedBgr)
+      
+      debugger
+      for (let i = 0, j = 0; i < imgData.data.length; i += 4, j += 3) {
+        imgData.data[i] = bgr[j + 2]
+        imgData.data[i + 1] = bgr[j + 1]
+        imgData.data[i + 2] = bgr[j]
+        imgData.data[i + 3] = 255
+      }  
+      ctx.putImageData(imgData, 0, 0)
+
+      console.log(performance.now() - st)
+      // const buffer = await new Response(ev.data).arrayBuffer()
+      
+      
+    }
+    // function loop() {
+    //   // screenSync.init()
+    //   const bgr = screenSync.record()
+    //   // ctx.clearRect(0, 0, previewEl.width, previewEl.height)
+    //   ctx.putImageData(imgData, 0, 0)
+    //   // screenSync.release()
+    // }
+    // setInterval(loop, 1000 / 25)
+  </script>
+</body>
+</html>
